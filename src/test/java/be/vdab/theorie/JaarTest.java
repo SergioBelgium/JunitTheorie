@@ -32,5 +32,21 @@ class JaarTest {
         assertThat(jaar).hasToString("2024");
 
     }
+    @Test
+    @DisplayName("Jaren met hetzelfde jaartal zijn gelijk")
+    void jarenMetHetzelfdeJaartalZijnGelijk(){
+        assertThat(new Jaar(2015)).isEqualTo(new Jaar(2015));
+    }
 
+    @Test
+    @DisplayName("Jaren met een verschillend jaartal zijn versillend")
+    void jarenMetEenVerschillendJaartalZijnVerschillend() {
+        assertThat(new Jaar(2015)).isNotEqualTo(new Jaar(2016));
+
+    }
+    @Test
+    @DisplayName("De hasCode van gelijke Jaren is gelijk")
+    void deHashCodeVanGelijkeJarenIsGelijk(){
+        assertThat(new Jaar(2015)).hasSameHashCodeAs(new Jaar(2015));
+    }
 }
