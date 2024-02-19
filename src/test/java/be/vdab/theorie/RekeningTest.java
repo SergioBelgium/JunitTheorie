@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
+
 
 class RekeningTest {
     private Rekening rekening;
@@ -38,6 +38,22 @@ class RekeningTest {
         rekening.stort(BigDecimal.ONE);
         assertThat(rekening.getSaldo()).isEqualByComparingTo("11");
     }
+    @Test
+    @DisplayName("het gestorte bedrag mag niet nul zijn")
+    void hetGestorteBedragMagNietNulZijn(){
+        assertThatIllegalArgumentException().isThrownBy(()->rekening.stort(BigDecimal.ZERO));
+    }
+    @Test
+    void hetGestortBedragMagNietNegatiefZijn() {
+        assertThatIllegalArgumentException().isThrownBy(
+                () -> rekening.stort(BigDecimal.valueOf(-1)));
+    }
+    @Test
+    void stortMetNullKanNiet() {
+        assertThatNullPointerException().isThrownBy(() -> rekening.stort(null));
+    }
+
+
 
 
 }
