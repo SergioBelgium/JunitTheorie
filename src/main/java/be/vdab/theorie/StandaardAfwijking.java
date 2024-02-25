@@ -1,6 +1,6 @@
 package be.vdab.theorie;
 
-public class StandaardAfwijking {
+public class StandaardAfwijking { //esto seria una buena forma de comprobar si el metodo codificado es correcto o funciona segun lo esperado!
     public static void main(String[] args) {
         try {
 

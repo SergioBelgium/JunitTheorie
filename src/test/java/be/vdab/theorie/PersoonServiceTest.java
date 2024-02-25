@@ -11,11 +11,11 @@ public class PersoonServiceTest {
 
    @BeforeEach
     public void beforeEach() {
-        service = new PersoonService(new PersoonRepository());   //aki ya vemos la "dependency injection"!!
+        service = new PersoonService(new PersoonRepositoryStub());   //aki ya vemos la "dependency injection"!!
 
     }
     @Test
     public void deWeddeStandaardAfwijkingIsPositief() {
-        assertThat(service.standaardAfwijkingWeddes()).isPositive();
+        assertThat(service.standaardAfwijkingWeddes()).isEqualByComparingTo("2");
     }
 }
