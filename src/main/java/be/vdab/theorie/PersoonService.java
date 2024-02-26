@@ -5,8 +5,8 @@ import java.math.MathContext;
 import java.math.RoundingMode;
 
 public class PersoonService {
-   // private final PersoonRepository repository = new PersoonRepository();  //esto desaparecera con la inyeccion de depencias!
-    private final PersoonRepository repository;
+   // private final CSVPersoonRepository repository = new CSVPersoonRepository();  //esto desaparecera con la inyeccion de depencias!
+    private final PersoonRepository repository;// ojito q ahora PersoonRepository es una interface!!,que implementaran CSV y JDBC -PersoonRepositopry
     PersoonService(PersoonRepository repository){
         this.repository=repository;
     }
